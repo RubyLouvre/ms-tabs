@@ -1,0 +1,62 @@
+.ms-tabs {
+  position: relative;
+  margin: 0 0 30px; }
+
+.ms-tabs-buttons {
+  *zoom: 1; }
+  .ms-tabs-buttons:after, .ms-tabs-buttons:before {
+    content: "";
+    display: table; }
+  .ms-tabs-buttons:after {
+    clear: both;
+    overflow: hidden; }
+
+.ms-tabs-buttons {
+  position: relative;
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  border-bottom: 1px solid #cecece; }
+  .ms-tabs-buttons .ms-tabs-button {
+    position: relative;
+    display: block;
+    float: left;
+    list-style-type: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    font-size: 11px;
+    line-height: 13px;
+    background: #ededed;
+    border: 1px solid #cecece;
+    border-bottom: none;
+    padding: 7px 25px 7px;
+    margin-right: 10px;
+    color: #484848;
+    margin-top: 10px;
+    text-align: center;
+    min-width: 50px; }
+    .ms-tabs-buttons .ms-tabs-button:hover {
+      background: #e5e5e5; }
+    .ms-tabs-buttons .ms-tabs-button.active {
+      cursor: default;
+      top: 1px;
+      margin-top: 0;
+      padding: 12px 25px 11px;
+      background: #fff;
+      color: #d71410;
+      border-top-color: #d71410;
+      border-bottom: 1px solid #fff; }
+
+.ms-tabs-panels {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  border: 1px solid #cecece;
+  border-top: none; }
+  .ms-tabs-panels .ms-tabs-panel {
+    position: relative;
+    padding: 15px 26px; }

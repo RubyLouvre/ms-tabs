@@ -1,0 +1,15 @@
+<div class="ms-tabs">
+    <ul class="ms-tabs-buttons">
+        <li class="ms-tabs-button" 
+            :for="($index,el) in @triggers"
+            :class="[$index === @selectedIndex && 'active']"
+            :click="@cbProxy($event,$index)">{{el}}</li>
+    </ul>
+    <div class="ms-tabs-panels">
+        <div class="ms-tabs-panel" 
+             :for="($index, el) in @panels" 
+             :visible="$index === @selectedIndex"
+             :html="el"
+             ></div>
+    </div>
+</div>

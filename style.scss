@@ -1,0 +1,80 @@
+$uiname: "ms-tabs";
+
+.#{$uiname} {
+    position: relative;
+    margin: 0 0 30px;
+}
+%clearfix {
+    *zoom: 1;
+
+    &:after,
+        &:before {
+        content: "";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+        overflow: hidden;
+    }
+}
+.#{$uiname}-buttons {
+    position: relative; 
+    display: block;
+    list-style-type: none;
+    margin: 0; 
+    padding: 0;
+    z-index: 1;
+    border-bottom: 1px solid #cecece;
+    @extend %clearfix;
+    .#{$uiname}-button{
+        position: relative;
+        display: block;
+        float: left;
+        list-style-type: none;
+        background: none;
+        margin: 0; 
+        padding: 0;
+        cursor: pointer;
+        //theme
+        font-size: 11px; 
+        line-height: 13px;
+        background: #ededed;
+        border: 1px solid #cecece;
+        border-bottom: none;
+        padding: 7px 25px 7px;
+        margin-right: 10px;
+        color: #484848;
+        margin-top: 10px;
+        text-align: center;
+        min-width: 50px;
+        &:hover{
+            background: #e5e5e5;
+        }
+        &.active{
+            cursor: default;
+            //theme
+            top: 1px;
+            margin-top: 0;
+            padding: 12px 25px 11px;
+            background: #fff;
+            color: #d71410;
+            border-top-color: #d71410;
+            border-bottom: 1px solid #fff;
+        }
+    }
+}
+.#{$uiname}-panels {
+    position: relative;
+    z-index: 2;
+    //theme
+    background: #fff;
+    border: 1px solid #cecece;
+    border-top: none;
+
+    .#{$uiname}-panel{
+        position: relative;
+
+        padding: 15px 26px;
+    }
+}
