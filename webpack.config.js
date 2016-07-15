@@ -1,6 +1,7 @@
-var webpack = require('webpack');
+var webpack = require('webpack')
 
-var path = require('path');
+var path = require('path')
+var node_modules = path.resolve(__dirname, 'node_modules')
 
 function heredoc(fn) {
     return fn.toString().replace(/^[^\/]+\/\*!?\s?/, '').
@@ -28,8 +29,8 @@ var api = heredoc(function () {
      ```   
      */
 })
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var cssExtractor = new ExtractTextPlugin('/[name].css');
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var cssExtractor = new ExtractTextPlugin('/[name].css')
 
 module.exports = {
     entry: {
@@ -38,8 +39,8 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js',
-        libraryTarget: 'umd',
-        library: 'avalon'
+       // libraryTarget: 'umd',
+       // library: 'avalon'
     }, //页面引用的文件
     plugins: [
         new webpack.BannerPlugin('切换卡 by 司徒正美\n' + api)
@@ -52,7 +53,6 @@ module.exports = {
             {test: /\.scss$/, loader: cssExtractor.extract( 'css!sass')},
             {test: /\.(ttf|eot|svg|woff2?)((\?|#)[^\'\"]+)?$/, loader: 'file-loader?name=[name].[ext]'}
 
-
         ]
     },
     'html-minify-loader': {
@@ -64,9 +64,18 @@ module.exports = {
         }
     },
     plugins: [
-        cssExtractor
-    ],
+        cssExtractor,
+        new webpack.ProvidePlugin({
+            $: 'jquery', //加载$全局
+            'window.avalon':'avalon2' //加载 avalon 全局 [******这里必须强制 window.avalon]
+        }),
+    ], 
     resolve: {
+        alias: {
+            'jquery': path.resolve(__dirname, 'app/_lib/jQuery-3.0.0.js'),
+            'avalon':path.resolve(node_modules,'avalon2/dist/avalon.js')//这里就可以改成avalon.modern
+        },
+        
         extensions: ['.js', '', '.css']
     }
 }

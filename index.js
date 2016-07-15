@@ -1,4 +1,4 @@
-var avalon = require('./avalon')
+var avalon = require('avalon')
 require('./style.scss')
 avalon.component('ms-tabs', {
     template: require('./template.html'),
