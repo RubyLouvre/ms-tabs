@@ -53,7 +53,7 @@
 	    }
 	})
 
-	//module.exports = avalon //注意这里必须返回avalon,用于webpack output配置
+	//module.exports = avalon //现在调整了webpack.config.js不需要返回avalon
 
 
 /***/ },
